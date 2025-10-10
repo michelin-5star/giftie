@@ -1,3 +1,5 @@
+[中文](./README.cn.md) | **English**
+
 <p align="center"><img width="100" src="./logo.png" alt="Gift logo"></p>
 <h1 align="center">Giftie</h1>
 <p align="center">
@@ -9,109 +11,109 @@
   <a target="_blank" href="https://kyrieliu.cn/images/qrcode.jpg"><img src="https://img.shields.io/badge/Consult-Wechat%20Official%20Account-green" alt="wechat"></a>
 </p>
   
-## :sparkles: 介绍
-> 广东省一键预约结婚 Chrome 插件 [marie](https://github.com/KKKyrie/marie) 现已开源，用完 giftie 就可以考虑用 [marie](https://github.com/KKKyrie/marie) 了 :smirk:  
+## :sparkles: Introduction
+> The Chrome extension [marie](https://github.com/KKKyrie/marie) for one-click marriage appointment booking in Guangdong Province is now open source. After using Giftie, you might want to consider using [marie](https://github.com/KKKyrie/marie) next :smirk:  
 
-Giftie 是一个用来搞定「**送礼问题**」的**终极解决方案**。  
-采用「自定义文案」+「自定义礼物」+「抽奖」的形式，让礼物的接收方（母亲/妻子/女友）感受到来自于你的真心和爱意。   
+Giftie is the **ultimate solution** for conquering the "**gift-giving dilemma**".  
+Using a combination of "custom messages" + "custom gifts" + "lottery draw", it helps the gift recipient (mother/wife/girlfriend) feel your genuine love and heartfelt affection.   
 
-💍我用这个小工具，求婚成功啦！  
+💍I used this little tool and successfully proposed!  
   
-有趣的小故事：[Part.1](https://mp.weixin.qq.com/s/7PY3547eXXQEJFVcvEyLww)，[Part.2](https://mp.weixin.qq.com/s/fgGW3uhocwk71FhqoCcIBw)  
+Interesting backstory: [Part.1](https://mp.weixin.qq.com/s/7PY3547eXXQEJFVcvEyLww), [Part.2](https://mp.weixin.qq.com/s/fgGW3uhocwk71FhqoCcIBw)  
   
-**注意：运行环境仅支持 [Node v14.15.0](https://nodejs.org/dist/v14.15.0/)**
+**Note: Runtime environment only supports [Node v14.15.0](https://nodejs.org/dist/v14.15.0/)**
   
 <br><br><br>
 
-## :chestnut: 示例
+## :chestnut: Demo
 <p align="center"><img alt="demo" width="300" src="./demo.png"></p>
-<p align="center">（仅支持微信内访问，请用微信扫描二维码查看示例）</p>
+<p align="center">(WeChat access only, please scan QR code with WeChat to view demo)</p>
   
 <br><br><br>
 
-## :bookmark: 使用指引
-### :star: 点击 star
-在 Github 上点击 star，就会持续关注当前项目（可通过个人主页快速找到当前项目）；以及，可以小小的满足一下作者的虚荣心，为以后的迭代提供动力。
-> 科普：star 相当于关注/收藏/点赞。  
+## :bookmark: Usage Guide
+### :star: Click Star
+Click star on GitHub to continuously follow this project (you can quickly find this project through your personal homepage); and it can slightly satisfy the author's vanity, providing motivation for future iterations.
+> Fun fact: star is equivalent to follow/bookmark/like.  
   
 <br>
 
-### :loop: 点击 fork 并自定义配置文件
-Fork 之后，你就可以在这份「自己的代码」仓库中进行定制化的配置了。  
-Giftie 将一切可以 DIY 的变量都放在了配置文件 ```gift.setting.js``` 中，每个字段上都标记了详细的注释，这里我们可以快速的过一下关键字段：  
+### :loop: Fork and Customize Configuration
+After forking, you can make customized configurations in this "your own code" repository.  
+Giftie puts all customizable variables in the configuration file ```gift.setting.js```, with detailed comments on each field. Here's a quick overview of the key fields:  
 ```javascript
-// 控制项目全局状态的关键 key，如非特殊情况或覆盖使用，则不用修改
+// Key for controlling global project status, no need to modify unless special circumstances or override usage
 export const GLOBAL_KEYS = {
   EXIST_KEY: 'HAS_GIFT',
   NAME_KEY: 'GIFT_NAME',
   IMAGE_KEY: 'GIFT_IMAGE_URL',
 };
 
-// 是否允许对方在抽奖结束后重新抽奖
-// 建议调试的时候保留，给对方使用时去掉
+// Whether to allow the other party to re-draw after the lottery ends
+// Recommended to keep during debugging, remove when giving to the other party
 export const IS_SHOW_RESTART = false;
 
-// 首页配置（主要是文案，暂不支持修改主题）
+// Homepage configuration (mainly copy, theme modification not supported yet)
 export const homeConfig = {
-  // 主标题
-  title: '520送礼抽奖',
-  // 留言，数组的每一项代表一行
+  // Main title
+  title: '520 Gift Lottery',
+  // Messages, each item in the array represents a line
   messages: [
-    { key: 'a', wording: '这是第一行文案', },
-    { key: 's', wording: '这是第二行文案', },
-    { key: 'd', wording: '然后，这里是第三行文案', },
+    { key: 'a', wording: 'This is the first line of copy', },
+    { key: 's', wording: 'This is the second line of copy', },
+    { key: 'd', wording: 'And here is the third line of copy', },
   ],
-  // 最终解释权归属人
+  // Final interpretation rights belong to
   owner: 'XXX',
-  // 抽奖转盘的动画时间，单位毫秒
+  // Lottery wheel animation time in milliseconds
   timeout: 5000,
-  // 指定中奖的礼物下标，从 0 开始
+  // Specify winning gift index, starting from 0
   targetGiftIndex: null,
 };
 
-// 礼物清单
-// 字段 key 不用改，只要保证每个礼物的 key 字段是不同的即可
-// 图片放在 public/images 中，建议是正方形，否则影响视觉体验
-// name 是礼物的全称；alias 是礼物的简称（用来显示在抽奖方格里）
+// Gift list
+// Don't change the field key, just ensure each gift's key field is different
+// Put images in public/images, preferably square, otherwise affects visual experience
+// name is the full name of the gift; alias is the short name (used for display in lottery grid)
 export const gifts = [
-  { key: 'q', name: 'Dior双飞套装', alias: 'Dior双飞', image: '/images/1.png',  description: '「经典迷人色彩，彰显奢华魅力」' },
-  { key: 'w', name: '腾讯视频终身VIP', alias: 'VIP', image: '/images/2.png',  description: '“为你承包一辈子的 VIP”' },
-  { key: 'e', name: '兰蔻小黑瓶套装', alias: '小黑瓶套装', image: '/images/3.png',  description: '「强维稳，快修护」' },
-  { key: 'r', name: '520红包', alias: '520', image: '/images/6.png',  description: '“想给你唱一百首情歌”' },
-  { key: 't', name: 'Dior星空套装', alias: 'Dior星空', image: '/images/5.png',  description: '「百变唇妆，精美雕琢」' },
-  { key: 'y', name: '1314红包', alias: '1314', image: '/images/6.png',  description: '“从今往后，我都会在你旁边”' },
-  { key: 'u', name: 'UR购物券：¥1,000', alias: 'UR', image: '/images/7.png',  description: '“UR！买！”' },
-  { key: 'i', name: 'Dyson美发套装', alias: '戴森', image: '/images/8.png',  description: '「不同造型需求，全面满足」' },
+  { key: 'q', name: 'Dior Duo Set', alias: 'Dior Duo', image: '/images/1.png',  description: '"Classic charming colors, showcasing luxurious charm"' },
+  { key: 'w', name: 'Tencent Video Lifetime VIP', alias: 'VIP', image: '/images/2.png',  description: '"Covering your lifetime VIP"' },
+  { key: 'e', name: 'Lancôme Advanced Génifique Set', alias: 'Black Bottle Set', image: '/images/3.png',  description: '"Strong stabilization, fast repair"' },
+  { key: 'r', name: '520 Red Envelope', alias: '520', image: '/images/6.png',  description: '"Want to sing a hundred love songs for you"' },
+  { key: 't', name: 'Dior Starry Sky Set', alias: 'Dior Starry', image: '/images/5.png',  description: '"Versatile lip makeup, exquisitely crafted"' },
+  { key: 'y', name: '1314 Red Envelope', alias: '1314', image: '/images/6.png',  description: '"From now on, I will always be by your side"' },
+  { key: 'u', name: 'UR Shopping Voucher: ¥1,000', alias: 'UR', image: '/images/7.png',  description: '"UR! Buy!"' },
+  { key: 'i', name: 'Dyson Hair Styling Set', alias: 'Dyson', image: '/images/8.png',  description: '"Meeting all different styling needs"' },
 ];
 ```
-注意，配置礼物时请自行找礼物图片，为了保障视觉体验，请选用**正方形**且已经过**体积压缩**的图片。  
+Note: When configuring gifts, please find gift images yourself. To ensure visual experience, please choose **square** and **compressed** images.  
   
 <br>
 
-### :rocket: 部署
-修改完配置检查没问题后，就可以上线了。  
-Build 后的文件直接放在自己的服务器上即可。如果没有自己的服务器，推荐使用[腾讯云的静态网站托管服务](https://cloud.tencent.com/document/product/876/40270)。  
-> Tip: 本项目是一个「纯前端」项目，关键状态都保存在客户端（localStorage）中，毕竟是一个 MVP 的产品，也不会有谁的母亲/老婆/女友会删掉客户端状态重新抽(zuò)奖(bì)吧，不会吧不会吧？如果有觉得不稳妥的朋友，也可以改造成数据库中保存用户状态的模式。  
+### :rocket: Deployment
+After modifying the configuration and checking that everything is correct, you can go live.  
+Just put the built files directly on your own server. If you don't have your own server, we recommend using [Tencent Cloud's Static Website Hosting Service](https://cloud.tencent.com/document/product/876/40270).  
+> Tip: This project is a "pure frontend" project, with key states saved in the client (localStorage). After all, it's an MVP product, and surely no one's mother/wife/girlfriend would delete the client state to re-draw (cheat) the lottery, right? Right? If anyone feels this is not secure enough, you can also modify it to save user states in a database.  
   
 <br><br><br>
 
-## :flags: 未来规划
-- 支持多种字体
-- 支持多种主题
-- 支持根据自定义抽奖模式（转盘 or 九宫格）
-- 更灵活的文案配置  
+## :flags: Future Roadmap
+- Support for multiple fonts
+- Support for multiple themes
+- Support for custom lottery modes (wheel or nine-grid)
+- More flexible copy configuration  
   
-:star2: 如果 Giftie 对你有帮助，欢迎用 star 来表达对我的支持，Thx～   
-如果你希望第一时间 get 我的新开源项目，一定要记得在 Github 上关注我～
+:star2: If Giftie helps you, feel free to express your support with a star, thanks~   
+If you want to get my new open source projects first-hand, make sure to follow me on GitHub~
   
 <br><br><br>
 
-## :star: Star 趋势
+## :star: Star Trends
 [![Star History Chart](https://api.star-history.com/svg?repos=kkkyrie/giftie&type=Date)](https://star-history.com/#kkkyrie/giftie&Date)  
-实时更新中...
+Updating in real time...
 
 <br><br><br>
 
-## :green_heart: 最后
-关注我的个人原创公众号，第一时间 get 更多好玩有趣的文章/项目，让前端变得更有趣 :stuck_out_tongue_closed_eyes:  
+## :green_heart: Finally
+Follow my personal original WeChat official account to get more fun and interesting articles/projects first-hand, making frontend development more enjoyable :stuck_out_tongue_closed_eyes:  
 <p align="center"><img width="350" alt="" src="https://kyrieliu.cn/images/qrcode2.jpg"></p>
