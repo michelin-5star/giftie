@@ -34,7 +34,7 @@ export const gifts = [
   { key: 'q', name: 'Meshki/PPMY裙裙一件', alias: '裙裙', image: '/images/1.jpg',  description: '「老婆喜欢漂亮裙裙」' },
   { key: 'w', name: '老公的一百个亲亲券', alias: '亲亲', image: '/images/2.jpg',  description: '“老公亲亲！”' },
   { key: 'e', name: 'Sephora购物一次', alias: 'Sephora', image: '/images/3.jpg',  description: '「美美老婆～」' },
-  { key: 'r', name: '北加州getaway trip一次', alias: '旅行～', image: '/images/6.jpg',  description: '“人称小bora bora”' },
+  { key: 'r', name: '北加州getaway trip一次', alias: '旅行～', image: '/images/4.jpg',  description: '“人称小bora bora”' },
   { key: 't', name: '豪华晚餐约会+1', alias: '约会～', image: '/images/5.jpg',  description: '「吃大肉噜！！！」' },
   { key: 'y', name: '再买一份花花～', alias: '花花', image: '/images/6.jpg',  description: '“给老婆订漂亮花花～不算情人节的哦”' },
   { key: 'u', name: 'Rhode最新单品一份', alias: 'Rhode', image: '/images/7.jpg',  description: '“即便老婆已经有8个一模一样的蛋噜”' },
