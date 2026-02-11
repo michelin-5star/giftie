@@ -42,7 +42,11 @@ export default {
 
 <style>
 .app {
-  font-family: Muyao, Avenir, Helvetica, Arial, sans-serif;
+  /* ✅ 改成系统中文字体（手机/电脑都会正常好看） */
+  font-family: -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", Arial, sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -50,15 +54,9 @@ export default {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+
   background-image: url(./assets/images/bg.jpeg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-
-.full-screen {
-  width: 100vw;
-  height: 100vh;
-}
-
-
 </style>
